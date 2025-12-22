@@ -49,7 +49,7 @@ export function createCommit(commit) {
   const messageSections = commit.message.split("\n\n");
   return {
     title: messageSections[0],
-    description: messageSections.slice(1).join("\n\n") || "u200B",
+    description: messageSections.slice(1).join("\n\n"),
     ...commit,
   };
 }
