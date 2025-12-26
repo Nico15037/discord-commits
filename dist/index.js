@@ -1,5 +1,6 @@
 import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
-/******/ var __webpack_modules__ = (
+/******/ var __webpack_modules__ = ({
+
 /***/ 9113:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
@@ -40744,7 +40745,7 @@ const payload = {
   content: (0,_api_js__WEBPACK_IMPORTED_MODULE_2__/* .parseTemplate */ .QC)(DATA, message),
   embeds: embeds.filter((x) => x),
 };
-	
+
 // console.log({ payload: JSON.stringify(payload) });
 
 try {
