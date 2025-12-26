@@ -7,6 +7,10 @@ inputs:
   webhook:
     description: discord webhook url without /github
     required: true
+  username:
+    required: false
+  avatar_url:
+    required: false
   message:
     description: "A general message that is displayed for all commits. Defaults to the repo name."
   embed:
@@ -21,3 +25,4 @@ inputs:
 runs:
   using: node16
   main: dist/index.js
+
