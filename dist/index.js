@@ -40745,6 +40745,7 @@ const payload = {
   content: (0,_api_js__WEBPACK_IMPORTED_MODULE_2__/* .parseTemplate */ .QC)(DATA, message),
   embeds: embeds.filter((x) => x),
   username: "jimmy",
+  avatar_url: "https://www.farawaymoon.com/wp-content/uploads/spirit-pawns-cover-dx.png",
 };
 
 // console.log({ payload: JSON.stringify(payload) });
