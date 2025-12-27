@@ -16,8 +16,10 @@ const template = await loadTemplate(templateName);
 
 const message = core.getInput("message") || template.message;
 const webhook = core.getInput("webhook");
-const username = core.getInput("username");
-const avatar_url = core.getInput("avatar_url");
+const usernameInput = core.getInput("username");
+const avatarInput = core.getInput("avatar_url");
+const username = usernameInput || template.username;
+const avatar_url = avatarInput || template.avatar_url;
 const lastCommitOnly = stringToBoolean(core.getInput("last-commit-only"));
 const extraEmbeds = stringToBoolean(core.getInput("include-extras"))
   ? template.extras || []
@@ -76,6 +78,8 @@ embeds = embeds
 const payload = {
   content: parseTemplate(DATA, message),
   embeds: embeds.filter((x) => x),
+  ...(username ? { username: parseTemplate(DATA, username) } : {}),
+  ...(avatar_url ? { avatar_url: parseTemplate(DATA, avatar_url) } : {}),
 };
 
 // console.log({ payload: JSON.stringify(payload) });
