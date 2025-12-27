@@ -22,6 +22,8 @@ The following example is the most commonly used. It uses the `avatar-with-link` 
     webhook: ${{ secrets.DISCORD_WEBHOOK }}
     template: "avatar-with-link"
     include-extras: true
+    username: "My Bot Name"
+    avatar_url: "https://example.com/my-bot-avatar.png"
 ```
 
 In this more advanced example an embed will be created for every commit as long as the commit message does not start with "fix:" or "feat:". Additionally, any part of the footer appearing after the lines starting with tokens "Signed-off-by" or "Co-authored-by" will be removed. 
@@ -74,6 +76,8 @@ In this more advanced example an embed will be created for every commit as long 
 | exclude-commits | String - Exclude commits that match the regular expressions defined on each line.|
 | include-footer | Boolean - Include the footer in `commit.description` as defined by `note-keywords`.|
 | note-keywords | String - A list of additional footers such as `Signed-off-by` or `Co-authored-by`. Case insensitive.|
+| username | String - Override the Discord webhook sender username. |
+| avatar_url | String - URL to use as the webhook avatar image. |
 
 ## Example commit payload
 ```js
