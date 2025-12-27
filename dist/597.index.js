@@ -15,7 +15,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-    message: "Successful commit to **{{ github.context.payload.repository.owner.name }}/{{ github.context.payload.repository.name}}**",
+    message: "Sucdascessful commit to **{{ github.context.payload.repository.owner.name }}/{{ github.context.payload.repository.name}}**",
     embed: {
         title: "{{ commit.title }}",
         description: "{{ commit.description }}",
