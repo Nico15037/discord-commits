@@ -40686,6 +40686,8 @@ const template = await (0,_api_js__WEBPACK_IMPORTED_MODULE_2__/* .loadTemplate *
 
 const message = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("message") || template.message;
 const webhook = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("webhook");
+const usernameInput = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("username");
+const avatarInput = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("avatar_url");
 const lastCommitOnly = (0,_api_js__WEBPACK_IMPORTED_MODULE_2__/* .stringToBoolean */ .PK)(_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("last-commit-only"));
 const extraEmbeds = (0,_api_js__WEBPACK_IMPORTED_MODULE_2__/* .stringToBoolean */ .PK)(_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("include-extras"))
   ? template.extras || []
@@ -40741,11 +40743,14 @@ embeds = embeds
   .slice(0, Math.min(MAX_EMBEDS - extraEmbeds.length, MAX_EMBEDS))
   .concat(extraEmbeds.map((embed) => (0,_api_js__WEBPACK_IMPORTED_MODULE_2__/* .parseTemplate */ .QC)(DATA, embed)));
 
+const username = usernameInput || template.username;
+const avatar_url = avatarInput || template.avatar_url;
+
 const payload = {
   content: (0,_api_js__WEBPACK_IMPORTED_MODULE_2__/* .parseTemplate */ .QC)(DATA, message),
   embeds: embeds.filter((x) => x),
-  username: "jimmy",
-  avatar_url: "https://www.farawaymoon.com/wp-content/uploads/spirit-pawns-cover-dx.png",
+  ...(username ? { username: (0,_api_js__WEBPACK_IMPORTED_MODULE_2__/* .parseTemplate */ .QC)(DATA, username) } : {}),
+  ...(avatar_url ? { avatar_url: (0,_api_js__WEBPACK_IMPORTED_MODULE_2__/* .parseTemplate */ .QC)(DATA, avatar_url) } : {}),
 };
 
 // console.log({ payload: JSON.stringify(payload) });
